@@ -140,6 +140,62 @@
       @apply text-gray-100 font-medium text-base;
     }
   }
+
+  .movie-card-details {
+    @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
+
+    & img {
+      @apply rounded-lg  block ml-auto mr-auto w-100;
+    }
+
+    & h3 {
+      @apply text-white font-bold text-base line-clamp-1;
+    }
+  }
+
+  .movie-card-cast {
+    @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
+
+    & img {
+      @apply rounded-lg  block ml-auto mr-auto w-25 h-25 flex-auto ;
+    }
+
+    & h3 {
+      @apply text-white font-bold text-base line-clamp-1;
+    }
+  }
+
+  .cast-container {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    gap: 20px; /* Spacing between cards */
+    padding: 20px;
+    scroll-snap-type: x mandatory; /* Smooth scrolling */
+  }
+
+  .cast-card {
+    flex: 0 0 auto; /* Prevents items from stretching */
+    width: 200px; /* Adjust width */
+    background-color: #1e1e2e; /* Dark theme */
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    scroll-snap-align: start; /* Each card snaps in view */
+  }
+
+  .cast-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .cast-card p {
+    color: white;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
 }
 
 @utility text-gradient {

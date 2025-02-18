@@ -1,9 +1,9 @@
-import {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Search from "./component/Search.jsx";
 import Moviecard from "./component/Moviecard.jsx";
-const BASE_URL = 'https://api.themoviedb.org/3'
+export const BASE_URL = 'https://api.themoviedb.org/3'
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const API_OPTIONS={
+export const API_OPTIONS={
     method:'GET',
     headers:{
         Accept: 'application/json',
@@ -34,7 +34,6 @@ const App = () => {
             const response = await fetch(endpoint, API_OPTIONS);
             if (!response.ok) {throw new Error('Something went wrong');}
             const data = await response.json();
-            console.log(data);
             if (data.response===false) {
                 setErrorMessage(data.Error || 'failed to fetch movies!');
                 setMovielist([]);
@@ -97,15 +96,18 @@ const App = () => {
                     {isLoading ? (<p className="text-white">Loading...</p>
                     ):errorMessage?(<p className="text-red-500">Error fetching movies</p>
                     ):(
-                        <ul>
-                            {movieList.map((movie) => (
-                                <Moviecard key={movie.id} movie={movie} />
-                            ))}
-                        </ul>
+
+                                <ul>
+                                    {movieList.map(movie => (
+                                        <Moviecard key={movie.id} movie={movie} />
+                                    ))}
+                                </ul>
+
                     )}
                 </section>
             </div>
         </main>
+
     )
 }
 
