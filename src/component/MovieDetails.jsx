@@ -47,7 +47,7 @@ const MovieDetails = () => {
         <div className="movie-card-details">
             <h1>{movie.title}</h1>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-            <h3 className="text-white"><strong>Rating:</strong> {movie.vote_average}/10</h3>
+            <h3 className="text-white"><strong>Rating:</strong> {movie.vote_average?.toFixed(1)||"N/A"}/10</h3>
             <h3 className="text-white"><strong>Release Date:</strong> {movie.release_date}</h3>
             <h3 className="text-white"><strong>Language:</strong> {movie.original_language}</h3>
             <br></br>
